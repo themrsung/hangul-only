@@ -1,13 +1,13 @@
 package pegasus.텐서;
 
+import pegasus.오류.영으로나누기오류;
+import pegasus.유틸리티.오브젝트들;
+
 import java.io.Serial;
 import java.util.Objects;
 import java.util.function.DoubleBinaryOperator;
 import java.util.function.DoubleUnaryOperator;
 import java.util.stream.DoubleStream;
-
-import pegasus.오류.영으로나누기오류;
-import pegasus.유틸리티.오브젝트들;
 
 /**
  * 3차원 벡터를 나타냅니다.
@@ -36,6 +36,7 @@ public class 벡터3 implements 벡터<벡터3> {
 
     /**
      * 새로운 벡터를 생성합니다.
+     *
      * @param 엑스 벡터의 엑스 값
      * @param 와이 벡터의 와이 값
      * @param 제트 벡터의 제트 값
@@ -48,6 +49,7 @@ public class 벡터3 implements 벡터<벡터3> {
 
     /**
      * 이 벡터의 엑스 값을 반환합니다.
+     *
      * @return 이 벡터의 엑스 값
      */
     public double 엑스() {
@@ -56,6 +58,7 @@ public class 벡터3 implements 벡터<벡터3> {
 
     /**
      * 이 벡터의 와이 값을 반환합니다.
+     *
      * @return 이 벡터의 와이 값
      */
     public double 와이() {
@@ -64,6 +67,7 @@ public class 벡터3 implements 벡터<벡터3> {
 
     /**
      * 이 벡터의 제트 값을 반환합니다.
+     *
      * @return 이 벡터의 제트 값
      */
     public double 제트() {
@@ -72,6 +76,7 @@ public class 벡터3 implements 벡터<벡터3> {
 
     /**
      * 이 벡터가 영인지 검토한 후, 그 여부를 반환합니다. 정확히 영({@code == 0})인 경우에만 해당합니다.
+     *
      * @return 이 벡터가 영인지 여부
      */
     @Override
@@ -81,6 +86,7 @@ public class 벡터3 implements 벡터<벡터3> {
 
     /**
      * 이 벡터에 숫자가 아닌 값({@code NaN})이 포함되어 있는지 검토한 후, 그 여부를 반환합니다.
+     *
      * @return 이 벡터가 숫자가 아닌지 여부
      */
     @Override
@@ -90,6 +96,7 @@ public class 벡터3 implements 벡터<벡터3> {
 
     /**
      * 이 벡터가 {@link Double#isFinite(double) 유한한지} 검토한 후, 그 여부를 반환합니다.
+     *
      * @return 이 벡터가 유한한지 여부
      */
     @Override
@@ -99,6 +106,7 @@ public class 벡터3 implements 벡터<벡터3> {
 
     /**
      * 이 벡터가 {@link Double#isInfinite(double) 무한한지} 검토한 후, 그 여부를 반환합니다.
+     *
      * @return 이 벡터가 무한한지 여부
      */
     @Override
@@ -108,6 +116,7 @@ public class 벡터3 implements 벡터<벡터3> {
 
     /**
      * 이 벡터의 제곱 크기를 반환합니다.
+     *
      * @return 이 벡터의 제곱 크기
      */
     @Override
@@ -117,6 +126,7 @@ public class 벡터3 implements 벡터<벡터3> {
 
     /**
      * 이 벡터의 크기를 반환합니다. 제곱근 메서드가 호촐됩니다.
+     *
      * @return 이 벡터의 크기
      */
     @Override
@@ -126,6 +136,7 @@ public class 벡터3 implements 벡터<벡터3> {
 
     /**
      * 이 벡터의 맨해튼 크기를 반환합니다.
+     *
      * @return 이 벡터의 맨해튼 크기
      */
     @Override
@@ -135,6 +146,7 @@ public class 벡터3 implements 벡터<벡터3> {
 
     /**
      * 이 벡터에 주어진 스케일러 {@code 스케일러}를 더한 뒤, 그 결과를 반환합니다.
+     *
      * @param 스케일러 이 벡터에 더할 스케일러
      * @return 벡터-스케일러 덧셈의 결과
      */
@@ -145,6 +157,7 @@ public class 벡터3 implements 벡터<벡터3> {
 
     /**
      * 이 벡터에서 주어진 스케일러 {@code 스케일러}를 뺀 뒤, 그 결과를 반환합니다.
+     *
      * @param 스케일러 이 벡터에서 뺄 스케일러
      * @return 벡터-스케일러 뺄셈의 결과
      */
@@ -155,6 +168,7 @@ public class 벡터3 implements 벡터<벡터3> {
 
     /**
      * 이 벡터를 주어진 스케일러 {@code 스케일러}와 곱한 뒤, 그 결과를 반환합니다.
+     *
      * @param 스케일러 이 벡터와 곱할 스케일러
      * @return 벡터-스케일러 곱셈의 결과
      */
@@ -165,6 +179,7 @@ public class 벡터3 implements 벡터<벡터3> {
 
     /**
      * 이 벡터를 주어진 스케일러 {@code 스케일러}로 나눈 뒤, 그 결과를 반환합니다.
+     *
      * @param 스케일러 이 벡터를 나눌 스케일러
      * @return 벡터-스케일러 나눗셈의 결과
      * @throws 영으로나누기오류 {@code 0}으로 나누기를 시도할 경우
@@ -179,6 +194,7 @@ public class 벡터3 implements 벡터<벡터3> {
 
     /**
      * 이 벡터와 주어진 벡터를 더한 뒤, 그 결과를 반환합니다.
+     *
      * @param 벡 이 벡터와 더할 벡터
      * @return 벡터-벡터 덧셈의 결과
      */
@@ -190,6 +206,7 @@ public class 벡터3 implements 벡터<벡터3> {
 
     /**
      * 이 벡터에서 주어진 벡터를 뺀 뒤, 그 결과를 반환합니다.
+     *
      * @param 벡 이 벡터에서 뺄 벡터
      * @return 벡터-벡터 뺄셈의 결과
      */
@@ -201,6 +218,7 @@ public class 벡터3 implements 벡터<벡터3> {
 
     /**
      * 이 벡터와 주어진 벡터 {@code 벡}과의 점 프로덕트를 반환합니다.
+     *
      * @param 벡 이 벡터와의 점 프로덕트를 연산할 벡터
      * @return 벡터-벡터간의 점 프로덕트 결과
      */
@@ -211,6 +229,7 @@ public class 벡터3 implements 벡터<벡터3> {
 
     /**
      * 이 벡터와 주어진 벡터 {@code 벡}과의 크로스 프로덕트를 반환합니다.
+     *
      * @param 벡 이 벡터와의 크로스 프로덕트를 연산할 벡터
      * @return 벡터-벡터간의 크로스 프로덕트 결과
      */
@@ -225,6 +244,7 @@ public class 벡터3 implements 벡터<벡터3> {
 
     /**
      * 이 벡터의 절댓값을 반환합니다.
+     *
      * @return 이 벡터의 절댓값
      */
     @Override
@@ -234,6 +254,7 @@ public class 벡터3 implements 벡터<벡터3> {
 
     /**
      * 이 벡터를 가장 가까운 정수로 내림한 뒤, 그 결과를 반환합니다.
+     *
      * @return 이 벡터의 내림값
      */
     @Override
@@ -243,6 +264,7 @@ public class 벡터3 implements 벡터<벡터3> {
 
     /**
      * 이 벡터를 가장 가까운 정수로 올림한 뒤, 그 결과를 반환합니다.
+     *
      * @return 이 벡터의 올림값
      */
     @Override
@@ -252,6 +274,7 @@ public class 벡터3 implements 벡터<벡터3> {
 
     /**
      * 이 벡터를 가장 가까운 정수로 반올림한 뒤, 그 결과를 반환합니다.
+     *
      * @return 이 벡터의 반올림값
      */
     @Override
@@ -261,6 +284,7 @@ public class 벡터3 implements 벡터<벡터3> {
 
     /**
      * 이 벡터의 부호를 바꾼 뒤, 그 결과를 반환합니다.
+     *
      * @return 이 벡터의 음수값
      */
     @Override
@@ -270,6 +294,7 @@ public class 벡터3 implements 벡터<벡터3> {
 
     /**
      * 이 벡터를 정규화한 뒤, 그 결과를 반환합니다.
+     *
      * @return 이 벡터의 정규화값
      * @throws 영으로나누기오류 이 벡터의 크기가 영인 경우
      */
@@ -283,6 +308,7 @@ public class 벡터3 implements 벡터<벡터3> {
 
     /**
      * 이 벡터와 주어진 벡터 {@code 벡} 간의 최솟값을 반환합니다.
+     *
      * @param 벡 이 벡터와의 최솟값을 산출할 벡터
      * @return 두 벡터간의 최솟값
      */
@@ -298,6 +324,7 @@ public class 벡터3 implements 벡터<벡터3> {
 
     /**
      * 이 벡터와 주어진 벡터 {@code 벡} 간의 최댓값을 반환합니다.
+     *
      * @param 벡 이 벡터와의 최댓값을 산출할 벡터
      * @return 두 벡터간의 최댓값
      */
@@ -313,6 +340,7 @@ public class 벡터3 implements 벡터<벡터3> {
 
     /**
      * 이 벡터를 주어진 범위에 맞도록({@code [최소, 최대]}) 제한한 뒤, 그 결과를 반환합니다.
+     *
      * @param 최소 최소값
      * @param 최대 최댓값
      * @return 주어진 범위에 맞게끔 조정된 값
@@ -330,6 +358,7 @@ public class 벡터3 implements 벡터<벡터3> {
 
     /**
      * 이 벡터의 스케일러값에 각각 주어진 변환함수를 적용한 뒤, 그 결과를 반환합니다.
+     *
      * @param 변환함수 각 스케일러값에 적용할 함수
      * @return 결과값
      */
@@ -345,7 +374,8 @@ public class 벡터3 implements 벡터<벡터3> {
 
     /**
      * 이 벡터를 주어진 벡터 {@code 벡}과 병합합니다.
-     * @param 벡 이 벡터와 병합할 벡터
+     *
+     * @param 벡    이 벡터와 병합할 벡터
      * @param 병합함수 병합을 주도할 함수
      * @return 병합된 벡터
      */
@@ -362,6 +392,7 @@ public class 벡터3 implements 벡터<벡터3> {
 
     /**
      * 이 벡터와 주어진 벡터 {@code 벡}과의 거리를 반환합니다.
+     *
      * @param 벡 이 벡터와의 거리를 산출할 벡터
      * @return 두 벡터단의 거리
      */
@@ -378,6 +409,7 @@ public class 벡터3 implements 벡터<벡터3> {
 
     /**
      * 이 벡터와 주어진 벡터 {@code 벡}과의 제곱 거리를 반환합니다.
+     *
      * @param 벡 이 벡터와의 제곱 거리를 산출할 벡터
      * @return 두 벡터단의 제곱 거리
      */
@@ -394,6 +426,7 @@ public class 벡터3 implements 벡터<벡터3> {
 
     /**
      * 이 벡터와 주어진 벡터 {@code 벡}과의 맨해튼 거리를 반환합니다.
+     *
      * @param 벡 이 벡터와의 맨해튼 거리를 산출할 벡터
      * @return 두 벡터단의 맨해튼 거리
      */
@@ -410,6 +443,7 @@ public class 벡터3 implements 벡터<벡터3> {
 
     /**
      * 이 벡터의 스케일러값으로 이루어진 스트림을 반환합니다.
+     *
      * @return 이 벡터에 대한 스트림
      */
     @Override
@@ -419,15 +453,17 @@ public class 벡터3 implements 벡터<벡터3> {
 
     /**
      * 이 벡터를 배열로 변환한 뒤 그 값을 반환합니다.
+     *
      * @return 이 벡터의 값으로 이루어진 배열
      */
     @Override
     public double[] 배열() {
-        return new double[] {엑스, 와이, 제트};
+        return new double[]{엑스, 와이, 제트};
     }
 
     /**
      * 이 벡터의 해시코드를 반환합니다.
+     *
      * @return 이 벡터의 해시코드
      */
     @Override
@@ -438,6 +474,7 @@ public class 벡터3 implements 벡터<벡터3> {
     /**
      * 이 벡터와 주어진 오브젝트 {@code 오브젝트}를 비교한 뒤, 두 오브젝트가 일치할 경우 {@code true}를,
      * 두 오브젝트가 일치하지 않을 경우 {@code false}를 반환합니다.
+     *
      * @param 오브젝트 이 벡터와 비교할 오브젝트
      * @return 주어진 오브젝트가 이 벡터와 일치할 경우 {@code true}, 그렇지 않을 경우 {@code false}
      */
@@ -449,6 +486,7 @@ public class 벡터3 implements 벡터<벡터3> {
 
     /**
      * 이 벡터를 문자열로 나타낸 값을 반환합니다.
+     *
      * @return 이 벡터를 문자열로 나타낸 값
      */
     @Override

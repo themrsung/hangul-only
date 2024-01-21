@@ -13,6 +13,7 @@ public class 영으로나누기오류 extends ArithmeticException {
 
     /**
      * 새로운 오류를 생성합니다.
+     *
      * @param 오류메시지 오류 메시지
      */
     public 영으로나누기오류(String 오류메시지) {
